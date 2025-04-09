@@ -1,4 +1,4 @@
-describe('Fluxo completo de Cadastro, Login e Logout | BugBank', () => {
+describe('Fluxo completo de Cadastro, Login e Logout! | BugBank', () => {
     const credenciais = {
         email: 'pablo@gmail.com',
         senha: '123456',
