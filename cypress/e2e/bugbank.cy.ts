@@ -6,7 +6,7 @@ describe('Fluxo completo de Cadastro, Login e Logout! | BugBank', () => {
     };
 
     beforeEach(() => {
-        // CT03: Cadastro com dados válidos
+        // test_CT03: Cadastro com dados válidos
         cy.visit('https://bugbank.netlify.app/');
         cy.xpath("//button[text()= 'Registrar']").click();
         cy.xpath("(//label[text()='E-mail']//following-sibling::input)[2]").type(credenciais.email, { force: true, delay: 100 });
@@ -23,7 +23,7 @@ describe('Fluxo completo de Cadastro, Login e Logout! | BugBank', () => {
 
 
     it.only('CT 01 e 03, Login e Logout', () => {
-        // CT09: Login e Logout
+        // ct_TEST01_TEST_03: Login e Logout
         cy.xpath("(//label[text()='E-mail']//following-sibling::input)[1]").type(credenciais.email, { force: true, delay: 100 });;
         cy.xpath('/html/body/div/div/div[2]/div/div[1]/form/div[2]/div/input').type(credenciais.senha, { force: true, delay: 100 });
         cy.xpath("/html/body/div/div/div[2]/div/div[1]/form/div[3]/button[1]").click(); // Botão "Entrar"
@@ -34,5 +34,6 @@ describe('Fluxo completo de Cadastro, Login e Logout! | BugBank', () => {
         // Validações pós-logout
         cy.url().should('include', ''); // Confirma que retornou à tela de login
         cy.xpath("(//label[text()='E-mail']//following-sibling::input)[1]").should('be.visible'); // Verifica que o campo de e-mail está visível
-    });
+        cy.wait(6000)
+    }); 
 });
