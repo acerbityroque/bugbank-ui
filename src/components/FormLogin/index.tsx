@@ -113,8 +113,8 @@ export const FormLogin = ({ onRegister, onCallModal }: FormLoginProps) => {
     >
       <FieldInput
         label="E-mail"
-        type="email"
-        name="email"
+        type="email1"
+        name="email1"
         visible={!!errors.email}
         messageError={errors.email?.message}
         register={register}

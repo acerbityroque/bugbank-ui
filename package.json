@@ -7,10 +7,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cy:open": "cypress open",
+    "test": "cypress run"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
+    "cypress-xpath": "^2.0.1",
     "js-cookie": "^3.0.1",
     "next": "12.1.4",
     "react": "18.0.0",
@@ -30,6 +33,7 @@
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "babel-plugin-styled-components": "^2.0.6",
+    "cypress": "^13.12.0",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.4",
     "eslint-config-prettier": "8.5.0",
