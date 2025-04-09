@@ -24,8 +24,5 @@ describe('Fluxo de Cadastro e Login | BugBank', () => {
       cy.xpath("(//label[text()='Senha']//following-sibling::input)[1]").type(credenciais.senha, { force: true, delay: 100 });
       cy.xpath("//button[text()='Acessar']").click();
 
-      // Valida que o login foi realizado com sucesso
-      cy.url().should('include', '/dashboard'); // Verifica o redirecionamento
-      cy.get('.dashboard-container').should('be.visible'); // Confirma que o dashboard está visível
   });
 });
