@@ -1,4 +1,4 @@
-name: Testes de Integração Contínua (CI) - E2E (End-to-End)
+name: End-to-end tests
 on: push
 jobs:
   cypress-run:
