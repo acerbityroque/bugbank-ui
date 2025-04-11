@@ -46,6 +46,13 @@ describe('Fluxo completo de Cadastro, Login e Logout! | BugBank', () => {
         cy.get(selectors.fecharModal).should('be.visible').click({ force: true });
     });
 
+    it.only('Interação que deu errado', () => {
+    cy.xpath(selectors.inputLoginEmail).type(credenciais.email, { force: true, delay: 100 });
+    cy.xpath(selectors.inputLoginSenha).type(credenciais.senha, { force: true, delay: 100 });
+    cy.xpath(selectors.botaoEntrar).click();
+    cy.wait(6000);
+});
+
     it('CT 01 e 03: Login, Transferência, Verificar Extrato e Logout', () => {
         cy.xpath(selectors.inputLoginEmail).type(credenciais.email, { force: true, delay: 100 });
         cy.xpath(selectors.inputLoginSenha).type(credenciais.senha, { force: true, delay: 100 });
@@ -61,13 +68,15 @@ describe('Fluxo completo de Cadastro, Login e Logout! | BugBank', () => {
         cy.xpath(selectors.botaoTransferir).click(); // Botão Transferir Agora
 
         // Condicional para conta inválida ou inexistente
+        cy.wait(3000);
         cy.xpath(selectors.mensagemContaInvalida).then($mensagem => {
             if ($mensagem.is(':visible')) {
                 cy.xpath(selectors.botaoFecharMensagem).click(); // Fecha a mensagem de erro
             }
         });
-
+        cy.wait(5000);
         cy.xpath(selectors.botaoVoltar).click(); // Botão Voltar
+        cy.wait(3000);
 
         // Nova interação: Verificar Extrato
         cy.xpath(selectors.botaoExtrato).should('be.visible').click(); // Clique no botão Extrato
